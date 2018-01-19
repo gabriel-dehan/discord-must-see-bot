@@ -2,9 +2,9 @@ var Discord = require('discord.js');
 var _ = require('lodash');
 var auth = require('./auth.json');
 
-MUST_SEE_COUNT = 1;
+MUST_SEE_COUNT = 2;
 MUST_SEE_EMOJI_CODE = 'mustsee';
-RECIPIENT_CHANNEL_NAME = 'maxi-best-of';
+RECIPIENT_CHANNEL_NAME = 'must-see';
 
 
 // Initialize Discord Bot
