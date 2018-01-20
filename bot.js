@@ -1,15 +1,17 @@
-var Discord = require('discord.js');
+var http = require('http');
+var Discord = require('./discord.js');
 var _ = require('lodash');
 var auth = require('./auth.json');
 
-MUST_SEE_COUNT = 2;
+TEST_MODE = false;
+MUST_SEE_COUNT = TEST_MODE ? 1 : 2;
 MUST_SEE_EMOJI_CODE = 'mustsee';
-RECIPIENT_CHANNEL_NAME = 'must-see';
-
+RECIPIENT_CHANNEL_NAME = TEST_MODE ? 'must-see-test' : 'must-see';
+TOKEN = TEST_MODE ? auth.test_token : auth.token;
 
 // Initialize Discord Bot
 const bot = new Discord.Client();
-bot.login(auth.token);
+bot.login(TOKEN);
 
 bot.on('ready', function(evt) {
   console.log('Bot is ready and armed!');
@@ -37,6 +39,7 @@ bot.on('messageReactionAdd', function(messageReaction, user) {
       var messageAttachments = message.attachments.map(function(attachment) {
         return new Discord.Attachment(attachment.url, attachment.filename);
       });
+
       recipientChannel.send(messageContent, { files: messageAttachments });
     }
   }
@@ -71,5 +74,6 @@ app.listen(port, () => {
 
 // pings server every 15 minutes to prevent dynos from sleeping
 setInterval(() => {
-  http.get('https://discord-must-see-bot.herokuapp.com');
+  if (!TEST_MODE)
+    http.get('https://discord-must-see-bot.herokuapp.com');
 }, 900000);
