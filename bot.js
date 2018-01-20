@@ -1,4 +1,5 @@
 var http = require('http');
+var https = require('https');
 var Discord = require('./discord.js');
 var _ = require('lodash');
 var auth = require('./auth.json');
@@ -75,5 +76,5 @@ app.listen(port, () => {
 // pings server every 15 minutes to prevent dynos from sleeping
 setInterval(() => {
   if (!TEST_MODE)
-    http.get('https://discord-must-see-bot.herokuapp.com');
+    https.get('https://discord-must-see-bot.herokuapp.com');
 }, 900000);
