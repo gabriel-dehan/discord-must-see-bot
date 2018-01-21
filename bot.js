@@ -21,6 +21,7 @@ bot.on('ready', function(evt) {
 bot.on('messageReactionAdd', function(messageReaction, user) {
   var message = messageReaction.message;
 
+  console.log("New reaction on message");
   // We don't want the must see from the recipient channel to count
   if (message.channel.name != RECIPIENT_CHANNEL_NAME) {
 
@@ -41,6 +42,7 @@ bot.on('messageReactionAdd', function(messageReaction, user) {
         return new Discord.Attachment(attachment.url, attachment.filename);
       });
 
+      console.log("Posting message on channel");
       recipientChannel.send(messageContent, { files: messageAttachments });
     }
   }

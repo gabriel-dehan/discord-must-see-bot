@@ -1,9 +1,9 @@
 {
-  "name": "greeter-bot",
+  "name": "mustsee-bot",
   "version": "1.0.0",
-  "description": "My own Discord bot",
+  "description": "Mustsee Discord bot",
   "main": "bot.js",
-  "author": "YOUR-NAME-HERE",
+  "author": "Gabriel Dehan",
   "engines": {
     "node": "9.3.0",
     "npm": "5.6.0"
