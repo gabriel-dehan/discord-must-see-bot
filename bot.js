@@ -33,6 +33,7 @@ bot.on('messageReactionAdd', function(messageReaction, user) {
       return channel.type == "text" && channel.name == RECIPIENT_CHANNEL_NAME;
     });
 
+    console.log("Mustsees:", mustsee.count);
     if (mustsee.count == MUST_SEE_COUNT) {
       var messageAuthor = message.author;
       var messageIntro = "_Behold! A new must-see by **" + message.author.username + "**:_\n\n";
