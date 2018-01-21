@@ -5,7 +5,7 @@ var _ = require('lodash');
 var auth = require('./auth.json');
 
 TEST_MODE = false;
-MUST_SEE_COUNT = TEST_MODE ? 1 : 2;
+MUST_SEE_COUNT = TEST_MODE ? 1 : 1;
 MUST_SEE_EMOJI_CODE = 'mustsee';
 RECIPIENT_CHANNEL_NAME = TEST_MODE ? 'must-see-test' : 'must-see';
 TOKEN = TEST_MODE ? auth.test_token : auth.token;
